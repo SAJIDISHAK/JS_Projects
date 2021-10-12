@@ -1,11 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
-:root{
+:root {
     --success-color: green;
     --error-color: red;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -26,9 +25,9 @@ body {
     width: 400px;
 }
 
-h2{
+h2 {
     text-align: center;
-    margin: 0 0  20px;
+    margin: 0 0 20px;
     color: #510a6d;
 }
 
@@ -36,13 +35,13 @@ h2{
     padding: 30px 40px;
 }
 
-.form-controll{
+.form-controll {
     margin-bottom: 10px;
     padding-bottom: 20px;
     position: relative;
 }
 
-.form-controll label{
+.form-controll label {
     color: #510a6d;
     display: block;
     margin-bottom: 5px;
@@ -56,11 +55,11 @@ h2{
     visibility: hidden;
 }
 
-.form-controll.error small{
+.form-controll.error small {
     visibility: visible;
 }
 
-.form-controll input{
+.form-controll input {
     border: 6px solid #9B59B6;
     border-radius: 5px;
     display: block;
@@ -69,12 +68,12 @@ h2{
     font-size: 12px;
 }
 
-.form-controll input:focus{
+.form-controll input:focus {
     outline: 0;
     border-color: #510a6d;
 }
 
-.form button{
+.form button {
     cursor: pointer;
     display: block;
     border-color: white;
@@ -88,10 +87,10 @@ h2{
     /* font-size: 10px; */
 }
 
-.form-controll.success input{
+.form-controll.success input {
     border-color: var(--success-color);
 }
 
-.form-controll.error input{
+.form-controll.error input {
     border-color: var(--error-color);
 }
