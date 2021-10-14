@@ -15,7 +15,7 @@ function showError(input, message) {
     const small = formControl.querySelector("small");
     //Override the text for small element using the input message
     small.innerText = message;
-}
+} 
 
 //Funtion to update class for success
 function showSuccess(input) {
