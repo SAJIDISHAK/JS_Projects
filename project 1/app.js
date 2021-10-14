@@ -23,7 +23,12 @@ function showSuccess(input) {
     const formControl = input.parentElement;
     //Replace the class - add error
     formControl.className = "form-controll success";
+}
 
+//Function to check if email is valid
+function isValidEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
 
 //Event Listeners
@@ -43,7 +48,10 @@ form.addEventListener("submit", function (e) {
     // Check if email is empty
     if (email.value === "") {
         showError(email, "Email is Required")
-    } else {
+    } else if (!isValidEmail(email.value)) {
+        showError(email, "Email is Invalid")
+    }
+     else {
         showSuccess(email)
     }
 
