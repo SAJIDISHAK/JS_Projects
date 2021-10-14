@@ -27,19 +27,42 @@ function showSuccess(input) {
 }
 
 //Function to check if email is valid
-function isValidEmail(email) {
+function isValidEmail(input) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    // return re.test(String(email).toLowerCase());
+    if (re.test(input.value.trim())) {
+        showSuccess(input);
+    } else {
+        showError(input, `Please provide a valid email`);
+    }
 }
 //Function to check if required fields have data
 function checkRequired(inputArray) {
     inputArray.forEach(input => {
         if (input.value === "") {
-            showError(input,` ${getFeildID(input)} is required`);
+            showError(input, ` ${getFeildID(input)} is required`);
         } else {
             showSuccess(input);
         }
     });
+}
+
+//Function to chek length
+function checkLength(input, min, max) {
+    if (input.value.length < min) {
+        showError(input, `${getFeildID(input)} needs to be at least ${min} characters`);
+    } else if (input.value.length > max) {
+        showError(input, `${getFeildID(input)} needs to be less than ${max} characters`);
+    } else {
+        showSuccess(input);
+    }
+}
+
+// Function to check if password & confirm password match
+function checkPasswordMatch(input1, input2) {
+    if (input1.value !== input2.value) {
+        showError(input2,"Confirm Password is not match");
+    }
 }
 
 //Function to get the id of the input fields with propper case
@@ -52,5 +75,9 @@ function getFeildID(input) {
 form.addEventListener("submit", function (e) {
     //stop page from reloading on submit
     e.preventDefault();
-    checkRequired([username, email, password, password2])
+    checkRequired([username, email, password, password2]);
+    checkLength(username, 3, 15);
+    checkLength(password, 6, 30);
+    isValidEmail(email);
+    checkPasswordMatch(password,password2);
 });
