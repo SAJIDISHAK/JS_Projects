@@ -16,10 +16,14 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    /* width: 100vw; */
+    /* overflow-y: hidden; */
+    background-image: url(images/BG.jpg);
+    background-repeat: repeat-y;
 }
 
 .container {
-    background-color: #8E44AD;
+    background-color: #9f3ae0;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     width: 400px;
