@@ -61,7 +61,7 @@ function checkLength(input, min, max) {
 // Function to check if password & confirm password match
 function checkPasswordMatch(input1, input2) {
     if (input1.value !== input2.value) {
-        showError(input2,"Confirm Password is not match");
+        showError(input2, "Confirm Password is not match");
     }
 }
 
@@ -79,5 +79,5 @@ form.addEventListener("submit", function (e) {
     checkLength(username, 3, 15);
     checkLength(password, 6, 30);
     isValidEmail(email);
-    checkPasswordMatch(password,password2);
+    checkPasswordMatch(password, password2);
 });
