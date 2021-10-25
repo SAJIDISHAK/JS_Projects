@@ -61,8 +61,8 @@ h1 {
     margin-left: 10px;
 }
 
-/* @media (max-width: 800px) {
+@media (max-width: 800px) {
     .video, .controls {
         width: 90%;
     }
-} */
+}
