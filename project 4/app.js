@@ -8,11 +8,20 @@ const swap = document.getElementById("swap");
 
 // Fetch Exchange Rates & Update the DOM
 function calculate() {
+    // Get the Currency Code for currency 1 and 2
     const currencyOne = currencyElementOne.value;
     const currencyTwo = currencyElementTwo.value;
 
-    fetch();
-    // console.log(currencyOne, currencyTwo);
+    // Send Request to ExchangeRate-API for cnversion rates for currency one
+    fetch(`https://v6.exchangerate-api.com/v6/25065ed45f1ba1dfc3bd2532/pair/${currencyOne}/${currencyTwo}`)
+        .then(res => res.json())
+        .then(data => {
+            // Get the Conversion Rate from Currency One to Currency Two
+            const conversionRate = data.conversion_rate;
+            console.log(data)
+            // Update the DOM to display the conversion rate
+            rate.innerText = conversionRate
+        });
 };
 
 // Event listeners
