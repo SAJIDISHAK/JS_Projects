@@ -18,9 +18,14 @@ function calculate() {
         .then(data => {
             // Get the Conversion Rate from Currency One to Currency Two
             const conversionRate = data.conversion_rate;
-            console.log(data)
             // Update the DOM to display the conversion rate
-            rate.innerText = conversionRate
+            rate.innerText = `1 ${currencyOne} = ${conversionRate} ${currencyTwo}`
+            // Update the Currency Two Amount
+            // amountCurrencyTwo.value = (amountCurrencyOne.value * conversionRate).toFixed(2);
+            // Formating Currency Two Amount
+            const amount2 = new Intl.NumberFormat("en-US", {style: "currency", })
+            // Updating DOM
+            amountCurrencyTwo.value = amount2;
         });
 };
 
@@ -33,6 +38,17 @@ amountCurrencyOne.addEventListener("input", calculate);
 currencyElementTwo.addEventListener("change", calculate);
 // Recalculate exchange amount when currency 2 change
 amountCurrencyTwo.addEventListener("input", calculate);
+// 
+swap.addEventListener("click", ()=> {
+    // Save value of Currency One code to temp variable
+    const temp = currencyElementOne.value;
+    // Copy Currency Two Code to currency One 
+    currencyElementOne.value = currencyElementTwo.value;
+    // Copy Currency One Code from temp variable to Currency Two
+    currencyElementTwo.value = temp;
+    // Recalculate Exchange rate after swap
+    calculate();
+})
 
 // Execute calculate function on page load
 calculate();
