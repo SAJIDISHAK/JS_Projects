@@ -20,10 +20,8 @@ function calculate() {
             const conversionRate = data.conversion_rate;
             // Update the DOM to display the conversion rate
             rate.innerText = `1 ${currencyOne} = ${conversionRate} ${currencyTwo}`
-            // Update the Currency Two Amount
-            // amountCurrencyTwo.value = (amountCurrencyOne.value * conversionRate).toFixed(2);
             // Formating Currency Two Amount
-            const amount2 = new Intl.NumberFormat("en-US", {style: "currency", })
+            const amount2 = new Intl.NumberFormat("en-US", { style: "currency", currency: currencyTwo }).format((amountCurrencyOne.value * conversionRate).toFixed(2));
             // Updating DOM
             amountCurrencyTwo.value = amount2;
         });
@@ -39,7 +37,7 @@ currencyElementTwo.addEventListener("change", calculate);
 // Recalculate exchange amount when currency 2 change
 amountCurrencyTwo.addEventListener("input", calculate);
 // 
-swap.addEventListener("click", ()=> {
+swap.addEventListener("click", () => {
     // Save value of Currency One code to temp variable
     const temp = currencyElementOne.value;
     // Copy Currency Two Code to currency One 
