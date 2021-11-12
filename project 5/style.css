@@ -23,7 +23,7 @@ body {
 aside {
     padding: 10px 20px;
     width: 250px;
-    border-right: 1px solid lightgray;
+    border-right: 1px solid greenyellow;
 }
 
 button {
@@ -55,7 +55,7 @@ h2 {
 
 h3 {
     background: greenyellow;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid greenyellow;
     padding: 10px;
     display: flex;
     justify-content: space-between;
